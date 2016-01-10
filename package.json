@@ -1,0 +1,19 @@
+{
+  "name": "task-drop-api",
+  "version": "1.0.0",
+  "author": "Scott Jason",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.5.2",
+    "bcrypt-nodejs": "0.0.3",
+    "jsonwebtoken": "^5.5.4",
+    "mongoose": "^4.3.5",
+    "nodemon": "^1.8.1",
+    "restify": "^4.0.3"
+  }
+}
