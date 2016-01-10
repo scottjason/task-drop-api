@@ -6,6 +6,12 @@ var toLower = function toLower(str) {
 };
 
 var userSchema = new mongoose.Schema({
+  firstName: {
+    type: String
+  },  
+  lastName: {
+    type: String
+  },    
   email: {
     type: String,
     set: toLower
@@ -13,6 +19,10 @@ var userSchema = new mongoose.Schema({
   password: {
     type: String
   },
+  teams: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Team'
+  }],
   tasks: {
     default: [],
     type: Array
@@ -26,8 +36,8 @@ var userSchema = new mongoose.Schema({
 });
 
 userSchema.pre('save', function(cb) {
-  
-  this.createdAt = (this.createdAt) ? this.createdAt : Date.now();
+
+  this.createdAt = this.createdAt ? this.createdAt : Date.now();
   this.updatedAt = Date.now();
 
   if (this.password) {
